@@ -2,7 +2,7 @@
 
 A professional, high-performance Pomodoro application designed for deep work and effective time management. This project combines minimalist aesthetics with robust functionality, featuring glassmorphism UI, dynamic themes, and a responsive timer engine.
 # 📸 Screenshots
-![Calculator Preview](screenshot.png)
+![Calculator Preview](Screenshot.png)
 ## ✨ Features
 
 * **Adaptive UI Themes**: The entire background ambiance shifts colors based on the current mode (Work, Short Break, or Long Break).
