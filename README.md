@@ -23,7 +23,7 @@ A professional, high-performance Pomodoro application designed for deep work and
 
 1.  **Clone the repository**:
     ```bash
-    git clone [https://github.com/amandeepintl/Pomodoro-Timer.git](https://github.com/amandeepintl/Pomodoro-Timer.git)
+    git clone https://github.com/amandeepintl/Pomodoro-Timer.git
     ```
 2.  **Open the app**: Open `index.html` in any modern web browser.
 3.  **Customize**: Use the **Settings** icon in the top right to adjust your intervals.
