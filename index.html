@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <meta name="description"
+        content="A professional, aesthetic Pomodoro timer for deep work and effective time management. Built for the MEXT Scholarship portfolio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-radial"></div>
+    <div class="bg-pulse pulse-1"></div>
+    <div class="bg-pulse pulse-2"></div>
+    <div class="bg-pulse pulse-3"></div>
+
+    <main class="container">
+        <header>
+            <div class="header-content">
+                <div class="title-group">
+                    <h1>Pomodoro Timer</h1>
+                    <p class="subtitle">Focus on what matters.</p>
+                </div>
+                <button id="settings-btn" class="icon-btn" aria-label="Settings">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <section class="timer-card glass">
+            <div class="mode-selector">
+                <button id="work-btn" class="active">Work</button>
+                <button id="break-btn">Short Break</button>
+                <button id="long-break-btn">Long Break</button>
+            </div>
+
+            <div class="timer-display-container">
+                <svg class="progress-ring" width="240" height="240">
+                    <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.05)" stroke-width="8"
+                        fill="transparent" r="110" cx="120" cy="120" />
+                    <circle id="progress-ring-circle" class="progress-ring__circle" stroke="url(#gradient)"
+                        stroke-width="8" stroke-linecap="round" fill="transparent" r="110" cx="120" cy="120" />
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="var(--primary-red)" />
+                            <stop offset="100%" stop-color="var(--primary-orange)" />
+                        </linearGradient>
+                        <linearGradient id="gradient-break" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="var(--break-green)" />
+                            <stop offset="100%" stop-color="var(--break-cyan)" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="timer-display">
+                    <span id="hours" style="display: none;">00</span><span id="hours-colon"
+                        style="display: none;">:</span><span id="minutes">25</span>:<span id="seconds">00</span>
+                </div>
+            </div>
+
+            <div class="session-counter">
+                <p id="session-text">Session 1 of 4</p>
+            </div>
+
+            <div class="controls">
+                <button id="start-pause-btn" class="btn-primary">Start</button>
+                <button id="reset-btn" class="btn-secondary">Reset</button>
+            </div>
+        </section>
+
+        <footer>
+            <p></p>
+        </footer>
+    </main>
+
+    <div id="settings-modal" class="modal-overlay">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button id="close-settings" class="icon-btn">&times;</button>
+            </div>
+            <div class="settings">
+                <div class="setting-group">
+                    <label>Work</label>
+                    <div class="hm-container">
+                        <div class="input-unit">
+                            <button class="step-btn" data-target="work-h" data-step="-1">−</button>
+                            <input type="number" id="work-h" value="0" min="0" max="23">
+                            <button class="step-btn" data-target="work-h" data-step="1">+</button>
+                        </div>
+                        <span class="colon">:</span>
+                        <div class="input-unit">
+                            <button class="step-btn" data-target="work-m" data-step="-1">−</button>
+                            <input type="number" id="work-m" value="25" min="0" max="59">
+                            <button class="step-btn" data-target="work-m" data-step="1">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Short Break</label>
+                    <div class="hm-container">
+                        <div class="input-unit">
+                            <button class="step-btn" data-target="break-h" data-step="-1">−</button>
+                            <input type="number" id="break-h" value="0" min="0" max="23">
+                            <button class="step-btn" data-target="break-h" data-step="1">+</button>
+                        </div>
+                        <span class="colon">:</span>
+                        <div class="input-unit">
+                            <button class="step-btn" data-target="break-m" data-step="-1">−</button>
+                            <input type="number" id="break-m" value="5" min="0" max="59">
+                            <button class="step-btn" data-target="break-m" data-step="1">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Long Break</label>
+                    <div class="hm-container">
+                        <div class="input-unit">
+                            <button class="step-btn" data-target="long-h" data-step="-1">−</button>
+                            <input type="number" id="long-h" value="0" min="0" max="23">
+                            <button class="step-btn" data-target="long-h" data-step="1">+</button>
+                        </div>
+                        <span class="colon">:</span>
+                        <div class="input-unit">
+                            <button class="step-btn" data-target="long-m" data-step="-1">−</button>
+                            <input type="number" id="long-m" value="15" min="0" max="59">
+                            <button class="step-btn" data-target="long-m" data-step="1">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="setting-item toggle-item">
+                    <label>Auto-Break</label>
+                    <label class="switch">
+                        <input type="checkbox" id="auto-switch">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="alert-sound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3"
+        preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
