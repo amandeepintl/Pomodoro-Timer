@@ -1,8 +1,10 @@
 # ⏳ Aesthetic Pomodoro Timer
 
 A professional, high-performance Pomodoro application designed for deep work and effective time management. This project combines minimalist aesthetics with robust functionality, featuring glassmorphism UI, dynamic themes, and a responsive timer engine.
+
 # 📸 Screenshots
-![Calculator Preview](Screenshot1.png) ![Calculator Preview](Screenshot2.png) ![Calculator Preview](Screenshot3.png) ![Calculator Preview](Screenshot4.png)
+![Timer Preview 1](Screenshot1.png) ![Timer Preview 2](Screenshot2.png) ![Timer Preview 3](Screenshot3.png) ![Timer Preview 4](Screenshot4.png)
+
 ## ✨ Features
 
 * **Adaptive UI Themes**: The entire background ambiance shifts colors based on the current mode (Work, Short Break, or Long Break).
@@ -23,7 +25,7 @@ A professional, high-performance Pomodoro application designed for deep work and
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/amandeepintl/Pomodoro-Timer.git
+    git clone [https://github.com/amandeepintl/Pomodoro-Timer.git](https://github.com/amandeepintl/Pomodoro-Timer.git)
     ```
 2.  **Open the app**: Open `index.html` in any modern web browser.
 3.  **Customize**: Use the **Settings** icon in the top right to adjust your intervals.
@@ -40,4 +42,4 @@ The application manages time using a centralized state system that handles:
 This project is open-source and available under the [MIT License](LICENSE).
 
 ---
-**Developed for the MEXT Scholarship portfolio.** If this helped you stay productive, feel free to give it a ⭐!
+**Developed for productivity.** If this helped you stay focused, feel free to give it a ⭐!
